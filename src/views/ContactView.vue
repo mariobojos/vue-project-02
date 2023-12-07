@@ -1,15 +1,16 @@
+<script setup>
+import { useFlash } from '@/composables/useFlash.js';
+
+const { flash } = useFlash();
+</script>
+
 <template>
-  <div class="contact">
+  <main>
     <h1>This is a contact page</h1>
-  </div>
+
+    <p>
+      <button @click="flash('Oops','Hello from contact page!', 'error')">Click here</button>
+    </p>
+  </main>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .contact {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>

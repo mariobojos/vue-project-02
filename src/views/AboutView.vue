@@ -1,15 +1,16 @@
+<script setup>
+import { useFlash } from '@/composables/useFlash.js';
+
+const { flash } = useFlash();
+</script>
+
 <template>
-  <div class="about">
+  <main>
     <h1>This is an about page</h1>
-  </div>
+
+    <p>
+      <button @click="flash('Yey', 'Hello from About page!')">Click here</button>
+    </p>
+  </main>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>

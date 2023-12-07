@@ -1,14 +1,18 @@
 # vue-project-02
 
-This template should help get you started developing with Vue 3 in Vite.
+My follow-along to the Laracast (https://laracasts.com/series/learn-vue-3-step-by-step) tutorial part 2.
 
-## Recommended IDE Setup
+The first three sections are in the main branch while succeeding topics are branched out.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Covered so far:
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Section 6. The Composition API
+1. New project
+   * Run npm `init vue@latest`
+   * NOTES: In the prompt that follows, answer Yes to Router, ESLint, and Prettier. The rest of the options should be NO fornow.
+2. Comparison between Options API and Component API
+3. Introduction to Composable
+   * Use sweetalert plugin as first composable example
 
 ## Project Setup
 
