@@ -13,6 +13,7 @@ Section 6. The Composition API
 2. Comparison between Options API and Component API
 3. Introduction to Composable
    * Use sweetalert plugin as first composable example
+4. Composable with Local Storage
 
 ## Project Setup
 
