@@ -1,5 +1,8 @@
 <script setup>
   import { ref, watch } from 'vue'
+  import { useStorage } from '@/components/useStorage.js';
+
+  const { write } = useStorage();
 
   let food = ref(localStorage.getItem('food'))
   let age = ref(localStorage.getItem('age'))
@@ -11,10 +14,6 @@
   watch(age, val => {
     write('age', val);
   });
-
-  function write(key, value) {
-    localStorage.setItem(key, value);
-  }
 </script>
 
 <template>
