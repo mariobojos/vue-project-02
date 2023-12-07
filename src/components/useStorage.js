@@ -1,8 +1,22 @@
-export function useStorage() {
+import { ref, watch } from 'vue'
 
-  function write(key, value) {
-    localStorage.setItem(key, value);
+export function useStorage(key) {
+
+  let storageValue = localStorage.getItem(key);
+
+  let fieldValue = ref(storageValue);
+
+  watch(fieldValue, () => {
+    if (fieldValue.value === '') {
+      localStorage.removeItem(key);
+    } else {
+      write();
+    }
+  });
+
+  function write() {
+    localStorage.setItem(key, fieldValue.value);
   }
 
-  return { write };
+  return fieldValue;
 }
