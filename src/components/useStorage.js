@@ -1,21 +1,29 @@
 import { ref, watch } from 'vue'
 
-export function useStorage(key) {
+export function useStorage(key, fieldValue = null) {
 
-  let storageValue = localStorage.getItem(key);
+  let storageValue = read()
 
-  let fieldValue = ref(storageValue);
+  if (storageValue) {
+     fieldValue = ref(storageValue);
+  } else {
+     fieldValue = ref(fieldValue);
 
-  watch(fieldValue, () => {
-    if (fieldValue.value === '') {
-      localStorage.removeItem(key);
-    } else {
-      write();
-    }
-  });
+     write();
+  }
+
+  watch(fieldValue, write, { deep: true });
+
+  function read() {
+    return JSON.parse(localStorage.getItem(key));
+  }
 
   function write() {
-    localStorage.setItem(key, fieldValue.value);
+    if (fieldValue.value === '' || fieldValue.value === null) {
+      localStorage.removeItem(key);
+    } else {
+      localStorage.setItem(key, JSON.stringify(fieldValue.value))
+    }
   }
 
   return fieldValue;
