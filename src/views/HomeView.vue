@@ -1,28 +1,23 @@
 <script setup>
-import { ref } from 'vue'
 
-const textarea = ref(null)
-
-function onKeyTabDown(e) {
-  const t = textarea.value
+function onTabPress(e) {
+  const textarea = e.target
 
   // Get caret position
-  const val = t.value
-  const start = t.selectionStart
-  const end = t.selectionEnd
+  const val = textarea.value
+  const start = textarea.selectionStart
+  const end = textarea.selectionEnd
 
   // Set textarea value to: text before caret + tab + text after caret
-  t.value = val.substring(0, start) + '\t' + val.substring(end)
+  textarea.value = val.substring(0, start) + '\t' + val.substring(end)
 
   // Put caret at the right position again
-  t.selectionStart = t.selectionEnd = start + 1
-
-  e.preventDefault()
+  textarea.selectionStart = textarea.selectionEnd = start + 1
 }
 </script>
 
 <template>
   <main>
-    <textarea ref="textarea" @keydown.tab="onKeyTabDown" style="width: 500px; height: 100%;">Hello, world!</textarea>
+    <textarea @keydown.tab.prevent="onTabPress" style="width: 500px; height: 100%;">Hello, world!</textarea>
   </main>
 </template>
