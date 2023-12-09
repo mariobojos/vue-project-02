@@ -1,21 +1,19 @@
 <script setup>
-  import { useStorage } from '@/components/useStorage.js';
+import { onMounted, ref } from 'vue'
 
-  let food = useStorage('food', 'inasal');
+  let textarea = ref(null);
 
-  let age = useStorage('age',  50);
+console.log(textarea.value); // WiIll display null since textarea is not yet mounted
+console.log(textarea); // Delay display, it will show the properties of ref textarea
+
+onMounted(() => {
+    console.log(textarea.value);  // Better yet, display the HTML textarea at onMounted
+    console.log(textarea.value.value);  // Display the ref's textarea value
+  });
 </script>
 
 <template>
   <main>
-    <p>
-      <label>What is your fave food?</label>
-      <input type="text" v-model="food" />
-    </p>
-
-    <p>
-      <label>How old ar you?</label>
-      <input type="text" v-model="age"  />
-    </p>
+    <textarea ref="textarea" style="width: 500px; height: 100%;">Hello, world!</textarea>
   </main>
 </template>
