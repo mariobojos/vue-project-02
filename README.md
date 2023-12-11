@@ -17,9 +17,9 @@ Section 6. The Composition API
 5. Reusable component
 
 Section 7. Managing State
-6. Dependency Injection with Provide and Inject
-7. Store State - another state management for small to medium projects
-8. Pinia - Another state management for medium to large projects
+1. Dependency Injection with Provide and Inject
+2. Store State - another state management for small to medium projects
+3. Pinia - Another state management for medium to large projects
 
 ## Project Setup
 
