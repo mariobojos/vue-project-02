@@ -2,8 +2,11 @@
 import QuizHeader from '@/components/Quiz/QuizHeader.vue'
 import QuizQuestion from '@/components/Quiz/QuizQuestion.vue'
 import QuizFooter from '@/components/Quiz/QuizFooter.vue'
+import { provide } from 'vue';
 
-defineProps({ quiz: Object });
+const props = defineProps({ quiz: Object });
+
+provide('quiz', props.quiz);
 </script>
 
 <template>
@@ -12,6 +15,6 @@ defineProps({ quiz: Object });
 
     <QuizQuestion />
 
-    <QuizFooter :quiz="quiz" />
+    <QuizFooter />
   </section>
 </template>
