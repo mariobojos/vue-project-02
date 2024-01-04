@@ -21,6 +21,14 @@ Section 7. Managing State
 2. Store State - another state management for small to medium projects
 3. Pinia - Another state management for medium to large projects
 
+Section 8. Team Dashboard Execise
+1. Add Team view with components (TeamHeader, TeamFooter, TeamList, TeamMember)
+2. Use Pinia for state management
+3. Implement actions to:
+   * Apply 3 methods for updating state
+   * Simulate updating state 
+4. Implement Pinia Getter (computed) 
+
 ## Project Setup
 
 ```sh
