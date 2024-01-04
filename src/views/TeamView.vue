@@ -1,8 +1,12 @@
 <script setup>
-import team from '@/team.json';
 import TeamHeader from '@/components/Teams/TeamHeader.vue';
 import TeamList from '@/components/Teams/TeamList.vue'
 import TeamFooter from '@/components/Teams/TeamFooter.vue'
+import { useTeamStore } from '@/stores/TeamStore.js';
+
+let team = useTeamStore();
+
+team.fillUp();
 </script>
 
 <template>
