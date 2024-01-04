@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 
 export let useTeamStore = defineStore('team',{
-  state() {
+  state: () => {
     return {
       name: '',
       spots: 0,
@@ -37,6 +37,12 @@ export let useTeamStore = defineStore('team',{
 
     grow(spot) {
       this.spots = spot;
+    }
+  },
+
+  getters: {
+    spotsRemaining() {
+      return this.spots - this.members.length;
     }
   }
 });

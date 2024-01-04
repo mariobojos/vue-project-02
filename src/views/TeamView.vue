@@ -8,9 +8,9 @@ let team = useTeamStore();
 
 team.fillUp();
 
-// Comment out below to simulate changing a state
+// Simulate changing a state, comment out to stop behavior
 setTimeout(() => {
-  team.grow(14);
+  team.grow(24);
 }, 2000);
 </script>
 
