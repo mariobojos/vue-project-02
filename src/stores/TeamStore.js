@@ -33,7 +33,10 @@ export let useTeamStore = defineStore('team',{
 
       // Method 3 of updating state using $state, which replace the state entirely
       this.$state = result.default;
+    },
+
+    grow(spot) {
+      this.spots = spot;
     }
   }
-
 });
