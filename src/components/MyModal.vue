@@ -5,23 +5,32 @@
 </script>
 
 <template>
-  <div v-if="show" class="modal-mask">
-    <div class="modal-container">
-      <header class="modal-header">
-        <slot name="header"></slot>
-      </header>
+  <Transition
+    enter-from-class="opacity-0 scale-125"
+    enter-to-class=" opacity-100 scale-100"
+    enter-active-class="transition duration-300"
+    leave-active-class="transition duration-200"
+    leave-from-class="opacity-100"
+    leave-to-class="opacity-0"
+  >
+    <div v-if="show" class="modal-mask">
+      <div class="modal-container">
+        <header class="modal-header">
+          <slot name="header"></slot>
+        </header>
 
-      <div class="modal-body">
-        <slot></slot>
+        <div class="modal-body">
+          <slot></slot>
+        </div>
+
+        <footer class="modal-footer">
+          <slot name="footer">
+            <button @click="$emit('close')">Close</button>
+          </slot>
+        </footer>
       </div>
-
-      <footer class="modal-footer">
-        <slot name="footer">
-          <button @click="$emit('close')">Close</button>
-        </slot>
-      </footer>
     </div>
-  </div>
+  </Transition>
 </template>
 
 <style scoped>
@@ -48,7 +57,7 @@
 .modal-body {
   display: flex;
   flex-direction: column;
-  align-content: start;
+  align-content: flex-start;
   margin-top: 0.4rem;
   margin-bottom: 0.41rem;
 }
