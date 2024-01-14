@@ -30,5 +30,27 @@ let showModal = ref(false);
   <MyModal
     :show="showModal"
     @close="showModal = false"
-  />
+  >
+    <template #header>
+      Add Team Member
+    </template>
+
+    <template #default>
+      <p>Add a team member to your team</p>
+
+      <form class="mt-2">
+        <div class="flex gap-2">
+          <input
+            class="flex-1 px-1.5"
+            type="email"
+            placeholder="Email"
+          />
+
+          <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">Add</button>
+        </div>
+      </form>
+
+    </template>
+  </MyModal>
+
 </template>
